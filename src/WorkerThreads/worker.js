@@ -1,11 +1,23 @@
 const { Worker, isMainThread, parentPort, workerData } = require("worker_threads");
-const path = require('path');
 
-if (!isMainThread) {
-    require('ts-node').register();
-    require(path.resolve(__dirname, workerData.pathMath));
-}
+let array = [];
+array = workerData.arrayExecution;
+const finalArray = [];
 
+const lat = workerData.lat;
+const lon = workerData.lon;
+
+const math = (num1, num2) => {
+    return Math.round(((num1 + num2) * 4) / 2);
+};
+
+array.forEach(async (obj) => {
+
+    // finalArray.push(math(lat, lon));
+    finalArray.push(obj.peso, obj.altura);
+});
+
+parentPort.postMessage(finalArray);
 
 /*
 

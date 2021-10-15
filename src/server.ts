@@ -1,6 +1,10 @@
 import "reflect-metadata";
 import express from "express";
 import "./database";
+import { ExecuteHugeMathUseCase } from "./service/ExecuteHugeMathUseCase";
+
+const executeHuheMathUseCase = new ExecuteHugeMathUseCase();
+executeHuheMathUseCase.execute().then(result => console.log(result));
 
 const app = express();
 

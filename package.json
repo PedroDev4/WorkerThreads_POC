@@ -10,10 +10,10 @@
     "typeorm": "^0.2.37"
   },
   "scripts": {
-    "dev": "ts-node-dev src/server.ts",
-    "typeorm": "",
+    "dev": "ts-node-dev --ignore-watch node_modules --transpile-only src/server.ts",
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
     "threadJs": "nodemon src/WorkerThreads/worker.js",
-    "threadTs": "ts-node src/WorkerThreads/main.ts"
+    "threadTs": "ts-node-dev --ignore-watch node_modules --transpile-only src/WorkerThreads/main.ts"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
